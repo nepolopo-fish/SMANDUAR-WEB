@@ -1,0 +1,283 @@
+/* ===== RESET & GENERAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #0f172a, #020617);
+  color: white;
+  min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+header {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+header img {
+  height: 48px;
+  margin-right: 16px;
+}
+
+header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ===== CARD CONTAINER ===== */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.card h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+/* ===== FORM STYLES ===== */
+#formScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  min-height: calc(100vh - 90px);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  opacity: 0.85;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #111;
+}
+
+input:focus {
+  background: white;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* ===== AMPLOP SCREEN ===== */
+#amplopScreen {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 90px);
+  padding: 60px 20px;
+}
+
+.envelope-container {
+  cursor: pointer;
+  text-align: center;
+}
+
+.envelope {
+  position: relative;
+  width: 240px;
+  height: 150px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.body {
+  width: 100%;
+  height: 100%;
+  background: #1d4ed8;
+  border-radius: 6px;
+  position: absolute;
+  bottom: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.flap {
+  width: 100%;
+  height: 100%;
+  background: #2563eb;
+  position: absolute;
+  top: 0;
+  transform-origin: top;
+  transition: transform 1s ease;
+  clip-path: polygon(0 0, 100% 0, 50% 60%);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.amplop-hint {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.8;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+/* ===== SURAT SCREEN ===== */
+#suratScreen {
+  display: none;
+  padding: 60px 20px;
+  min-height: calc(100vh - 90px);
+  justify-content: center;
+  align-items: center;
+}
+
+.surat-card {
+  background: white;
+  color: #111;
+  max-width: 700px;
+  padding: 50px;
+}
+
+.surat-title {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.surat-nomor {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 32px;
+  opacity: 0.7;
+}
+
+.pantun {
+  white-space: pre-line;
+  font-style: italic;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #1e293b;
+}
+
+.surat-intro {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.data-table {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.data-table td {
+  padding: 8px 0;
+  vertical-align: top;
+}
+
+.data-table td:first-child {
+  width: 100px;
+  font-weight: 500;
+}
+
+/* Style default */
+.status-text {
+  font-weight: 600;
+  margin-top: 20px;
+  padding: 16px;
+  border-left: 4px solid;
+  border-radius: 8px;
+}
+
+/* Khusus LULUS - Warna Biru */
+.status-lulus {
+  background: #f0f9ff;  /* Biru muda */
+  border-color: #2563eb;  /* Biru tua */
+  color: #1e40af;
+}
+
+/* Khusus TIDAK LULUS - Warna Merah */
+.status-tidak-lulus {
+  background: #fef2f2;  /* Merah muda */
+  border-color: #dc2626;  /* Merah tua */
+  color: #991b1b;
+}
+
+.surat-footer {
+  margin-top: 30px;
+  line-height: 1.6;
+}
+
+.ttd-section {
+  margin-top: 60px;
+  text-align: right;
+}
+
+.btn-kembali {
+  margin-top: 30px;
+  background: #1b4bbd;
+}
+
+.btn-kembali:hover {
+  background: #09367e;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+  
+  header h1 {
+    font-size: 16px;
+  }
+  
+  .card {
+    padding: 30px 20px;
+  }
+  
+  .surat-card {
+    padding: 30px 20px;
+  }
+}
